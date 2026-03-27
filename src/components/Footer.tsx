@@ -16,6 +16,7 @@ const footerLinks = [
         links: [
             { label: "Privacy Policy", href: "/privacy" },
             { label: "SMS Privacy Policy", href: "/privacy-policy" },
+            { label: "SMS Terms & Conditions", href: "/terms" },
             { label: "Contact", href: "/contact" },
         ],
     },
