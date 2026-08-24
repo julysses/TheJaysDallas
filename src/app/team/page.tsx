@@ -5,38 +5,34 @@ import AnimateIn from "@/components/AnimateIn";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-    title: "Portfolio",
-    description: `Renovation and resale projects completed by ${siteConfig.companyName}.`,
+    title: "Team",
+    description: `Meet the people behind ${siteConfig.companyName}.`,
 };
 
-type Project = {
-    address: string;
-    neighborhood: string;
-    type: "Flip" | "Wholesale" | "Buy & Hold";
-    status: "Coming Soon";
-    beforeImage?: string;
-    afterImage?: string;
-    summary: string;
+type TeamMember = {
+    name: string;
+    role: string;
+    photo?: string;
+    bio: string;
 };
 
-// Intentionally empty — no fabricated listings. Populate as real projects close.
-const projects: Project[] = [];
+// Intentionally empty — no placeholder names or headshots. Populate with real bios.
+const teamMembers: TeamMember[] = [];
 
-export default function PortfolioPage() {
+export default function TeamPage() {
     return (
         <>
             <PageHero
-                eyebrow="Portfolio"
+                eyebrow="Team"
                 title={
                     <>
-                        Our <span className="brand-text">work speaks</span> for itself
+                        The <span className="brand-text">people</span> behind the work
                     </>
                 }
-                subhead={`A selection of renovation and resale projects completed by ${siteConfig.companyName} across DFW.`}
+                subhead={`Get to know the team acquiring, renovating, and selling homes at ${siteConfig.companyName}.`}
             />
 
-            {/* ── Empty State ───────────────────────────── */}
-            {projects.length === 0 && (
+            {teamMembers.length === 0 && (
                 <section className="bg-paper py-24 sm:py-32">
                     <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
                         <AnimateIn>
@@ -51,23 +47,23 @@ export default function PortfolioPage() {
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
-                                        d="M2.25 12l8.954-8.955a1.5 1.5 0 012.122 0l8.954 8.955M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"
+                                        d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
                                     />
                                 </svg>
                             </div>
                             <h2 className="mt-8 font-display text-2xl font-semibold tracking-tight text-charcoal">
-                                Our First Flips Are Underway
+                                Team Bios Coming Soon
                             </h2>
                             <p className="mt-4 text-lg leading-relaxed text-stone">
-                                We are actively acquiring and renovating properties across
-                                DFW. Check back soon to see our completed projects, or reach
-                                out if you have a property to sell today.
+                                We&apos;re putting together profiles for the people behind{" "}
+                                {siteConfig.shortName}. In the meantime, feel free to reach
+                                out — we&apos;d love to hear from you.
                             </p>
                             <Link
-                                href="/sell"
+                                href="/contact"
                                 className="mt-10 inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-sm font-semibold text-paper shadow-lg shadow-primary/25 transition-all hover:bg-primary-light"
                             >
-                                Sell Your Home
+                                Get in Touch
                             </Link>
                         </AnimateIn>
                     </div>

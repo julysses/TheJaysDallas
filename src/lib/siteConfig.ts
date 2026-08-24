@@ -7,6 +7,7 @@ export const siteConfig = {
   email: "info@thejaysdallas.com",
   phone: "214-701-0100",
   year: new Date().getFullYear(),
+  tagline: "Buy. Renovate. Resell.",
   description:
-    "Software products and technology services based in Dallas, Texas.",
+    "A Dallas-based residential real estate investment firm acquiring, renovating, and reselling homes across DFW — plus a wholesale and capital-partner network.",
 } as const;
