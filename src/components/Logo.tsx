@@ -17,32 +17,15 @@ export default function Logo({
 
     const monogram = (
         <span
-            className={`relative inline-flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-500 shadow-lg shadow-indigo-600/20 ${sizeClasses[size]}`}
+            className={`relative inline-flex items-center justify-center rounded-lg border border-primary/30 bg-ink shadow-lg shadow-black/20 ${sizeClasses[size]}`}
         >
-            {/* 3 overlapping cursive J's */}
-            <span className="relative flex items-center" style={{ letterSpacing: "-0.15em" }}>
-                <span
-                    className="font-serif italic font-bold text-white/50"
-                    style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
-                >
+            {/* 3 overlapping upright serif J's */}
+            <span className="relative flex items-center font-display font-semibold" style={{ letterSpacing: "-0.15em" }}>
+                <span className="text-paper/35">J</span>
+                <span className="relative text-paper/65" style={{ marginLeft: "-0.2em" }}>
                     J
                 </span>
-                <span
-                    className="font-serif italic font-bold text-white/80 relative"
-                    style={{
-                        fontFamily: "'Georgia', 'Times New Roman', serif",
-                        marginLeft: "-0.2em",
-                    }}
-                >
-                    J
-                </span>
-                <span
-                    className="font-serif italic font-bold text-white relative"
-                    style={{
-                        fontFamily: "'Georgia', 'Times New Roman', serif",
-                        marginLeft: "-0.2em",
-                    }}
-                >
+                <span className="relative text-primary" style={{ marginLeft: "-0.2em" }}>
                     J
                 </span>
             </span>

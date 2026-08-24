@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/siteConfig";
 import AnimateIn from "@/components/AnimateIn";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
     title: "SMS Privacy Policy",
@@ -16,7 +17,7 @@ const sections = [
     {
         title: "Types of Messages",
         content:
-            "You may receive messages related to appointment reminders, service updates, order confirmations, promotional offers, and other communications relevant to our business relationship.",
+            "You may receive messages related to property inquiries, offer updates, appointment reminders, closing updates, and other communications relevant to our business relationship.",
     },
     {
         title: "Message Frequency",
@@ -73,26 +74,13 @@ const sections = [
 export default function PrivacyPolicyPage() {
     return (
         <>
-            {/* ── Hero ──────────────────────────────────── */}
-            <section className="relative overflow-hidden bg-slate-950 pb-16 pt-36 sm:pt-44">
-                <div className="absolute inset-0 dot-pattern opacity-30" />
-                <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-                    <AnimateIn>
-                        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                            SMS Privacy Policy
-                        </h1>
-                        <p className="mt-4 text-slate-400">
-                            Effective date: March 2026
-                        </p>
-                    </AnimateIn>
-                </div>
-            </section>
+            <PageHero title="SMS Privacy Policy" subhead="Effective date: March 2026" compact />
 
             {/* ── Content ───────────────────────────────── */}
-            <section className="bg-white py-16 sm:py-24">
+            <section className="bg-paper py-16 sm:py-24">
                 <div className="mx-auto max-w-3xl px-6 lg:px-8">
                     <AnimateIn>
-                        <p className="text-lg leading-relaxed text-gray-600">
+                        <p className="text-lg leading-relaxed text-stone">
                             {siteConfig.companyName} respects your privacy and is
                             committed to protecting the personal information you
                             share with us. This SMS Privacy Policy explains how we
@@ -104,11 +92,11 @@ export default function PrivacyPolicyPage() {
                     <div className="mt-12 space-y-10">
                         {sections.map((s, i) => (
                             <AnimateIn key={s.title} delay={i * 50}>
-                                <div className="border-l-2 border-indigo-100 pl-6">
-                                    <h2 className="text-lg font-semibold text-gray-900">
+                                <div className="border-l-2 border-primary/20 pl-6">
+                                    <h2 className="text-lg font-semibold text-charcoal">
                                         {s.title}
                                     </h2>
-                                    <p className="mt-3 leading-relaxed text-gray-600">
+                                    <p className="mt-3 leading-relaxed text-stone">
                                         {s.content}
                                     </p>
                                 </div>
@@ -118,43 +106,43 @@ export default function PrivacyPolicyPage() {
 
                     {/* Quick-reference box */}
                     <AnimateIn delay={sections.length * 50}>
-                        <div className="mt-16 rounded-xl border border-indigo-100 bg-indigo-50/50 p-8">
-                            <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-600">
+                        <div className="mt-16 rounded-xl border border-primary/20 bg-primary/5 p-8">
+                            <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
                                 Quick Reference
                             </h3>
-                            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-gray-700">
+                            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-charcoal/80">
                                 <li>
-                                    <span className="font-medium text-gray-900">
+                                    <span className="font-medium text-charcoal">
                                         Opt-Out:
                                     </span>{" "}
-                                    Reply <span className="font-semibold text-indigo-600">STOP</span> to
+                                    Reply <span className="font-semibold text-primary">STOP</span> to
                                     any message
                                 </li>
                                 <li>
-                                    <span className="font-medium text-gray-900">
+                                    <span className="font-medium text-charcoal">
                                         Help:
                                     </span>{" "}
-                                    Reply <span className="font-semibold text-indigo-600">HELP</span> to
+                                    Reply <span className="font-semibold text-primary">HELP</span> to
                                     any message
                                 </li>
                                 <li>
-                                    <span className="font-medium text-gray-900">
+                                    <span className="font-medium text-charcoal">
                                         Email:
                                     </span>{" "}
                                     <a
                                         href={`mailto:${siteConfig.email}`}
-                                        className="text-indigo-600 underline decoration-indigo-300 transition-colors hover:text-indigo-500"
+                                        className="text-primary underline decoration-primary/40 transition-colors hover:text-primary-light"
                                     >
                                         {siteConfig.email}
                                     </a>
                                 </li>
                                 <li>
-                                    <span className="font-medium text-gray-900">
+                                    <span className="font-medium text-charcoal">
                                         Phone:
                                     </span>{" "}
                                     <a
                                         href={`tel:${siteConfig.phone}`}
-                                        className="text-indigo-600 underline decoration-indigo-300 transition-colors hover:text-indigo-500"
+                                        className="text-primary underline decoration-primary/40 transition-colors hover:text-primary-light"
                                     >
                                         {siteConfig.phone}
                                     </a>
