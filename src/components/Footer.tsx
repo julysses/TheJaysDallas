@@ -39,7 +39,7 @@ export default function Footer() {
                     <div className="lg:col-span-2">
                         <div className="flex items-center gap-2.5">
                             <Logo size="sm" linkHome={false} />
-                            <span className="font-display text-lg font-semibold text-paper">
+                            <span className="font-display text-base font-bold uppercase tracking-wide text-paper">
                                 {siteConfig.shortName}
                             </span>
                         </div>

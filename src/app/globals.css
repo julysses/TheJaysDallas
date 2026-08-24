@@ -8,12 +8,12 @@
   --color-paper-alt: #f1ebe0;
   --color-charcoal: #2b2620;
   --color-stone: #6b6255;
-  --color-primary: #8a6d3b;
-  --color-primary-light: #a6873f;
-  --color-primary-dark: #6b5429;
+  --color-primary: #1428a3;
+  --color-primary-light: #3450c4;
+  --color-primary-dark: #0f1f7d;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ── Base ────────────────────────────────────── */

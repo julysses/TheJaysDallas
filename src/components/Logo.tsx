@@ -19,8 +19,8 @@ export default function Logo({
         <span
             className={`relative inline-flex items-center justify-center rounded-lg border border-primary/30 bg-ink shadow-lg shadow-black/20 ${sizeClasses[size]}`}
         >
-            {/* 3 overlapping upright serif J's */}
-            <span className="relative flex items-center font-display font-semibold" style={{ letterSpacing: "-0.15em" }}>
+            {/* 3 overlapping bold sans J's */}
+            <span className="relative flex items-center font-display font-bold" style={{ letterSpacing: "-0.15em" }}>
                 <span className="text-paper/35">J</span>
                 <span className="relative text-paper/65" style={{ marginLeft: "-0.2em" }}>
                     J

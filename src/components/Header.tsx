@@ -64,7 +64,7 @@ export default function Header() {
                 {/* Logo */}
                 <div className="flex items-center gap-2.5">
                     <Logo size="sm" />
-                    <Link href="/" className="hidden font-display text-lg font-semibold tracking-tight text-paper sm:inline">
+                    <Link href="/" className="hidden font-display text-base font-bold uppercase tracking-wide text-paper sm:inline">
                         {siteConfig.shortName}
                     </Link>
                 </div>
