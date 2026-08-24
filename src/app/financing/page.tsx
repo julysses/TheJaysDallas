@@ -28,25 +28,25 @@ export default function FinancingPage() {
                     <div className="grid gap-12 lg:grid-cols-5">
                         <div className="lg:col-span-2">
                             <AnimateIn>
-                                <div className="rounded-2xl bg-ink p-8 lg:p-10">
-                                    <h2 className="font-display text-xl font-semibold text-paper">
+                                <div className="rounded-2xl border border-charcoal/10 bg-ink p-8 lg:p-10">
+                                    <h2 className="font-display text-xl font-semibold text-charcoal">
                                         Partner With Us
                                     </h2>
-                                    <p className="mt-3 text-sm leading-relaxed text-paper/60">
+                                    <p className="mt-3 text-sm leading-relaxed text-stone">
                                         Our deals are backed by disciplined underwriting and a
                                         track record of on-time execution. If you&apos;re a
                                         private lender, JV partner, or hard-money source looking
                                         to deploy capital in DFW residential real estate, we&apos;d
                                         like to talk.
                                     </p>
-                                    <div className="mt-8 space-y-4 text-sm text-paper/60">
+                                    <div className="mt-8 space-y-4 text-sm text-stone">
                                         <p>
-                                            <a href={`mailto:${siteConfig.email}`} className="text-primary-light hover:underline">
+                                            <a href={`mailto:${siteConfig.email}`} className="text-primary hover:underline">
                                                 {siteConfig.email}
                                             </a>
                                         </p>
                                         <p>
-                                            <a href={`tel:${siteConfig.phone}`} className="text-primary-light hover:underline">
+                                            <a href={`tel:${siteConfig.phone}`} className="text-primary hover:underline">
                                                 {siteConfig.phone}
                                             </a>
                                         </p>

@@ -24,7 +24,7 @@ export default function HomePage() {
             <Image src="/hero-home.jpg" alt="" fill className="object-cover opacity-30" />
             layered under these CSS effects, no next.config change needed for local /public images. */}
         <svg
-          className="pointer-events-none absolute bottom-0 left-0 h-40 w-full text-paper/[0.06]"
+          className="pointer-events-none absolute bottom-0 left-0 h-40 w-full text-charcoal/[0.05]"
           viewBox="0 0 1200 160"
           preserveAspectRatio="none"
           fill="currentColor"
@@ -51,21 +51,21 @@ export default function HomePage() {
 
         <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 pb-24 pt-36 text-center sm:pt-44 lg:px-8 lg:pt-52">
           <AnimateIn>
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary-light">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary-light" />
+            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               Real Estate Investment — {siteConfig.location}
             </span>
           </AnimateIn>
 
           <AnimateIn delay={100}>
-            <h1 className="mx-auto max-w-4xl font-display text-5xl font-semibold leading-[1.1] tracking-tight text-paper sm:text-6xl lg:text-7xl">
+            <h1 className="mx-auto max-w-4xl font-display text-5xl font-semibold leading-[1.1] tracking-tight text-charcoal sm:text-6xl lg:text-7xl">
               We <span className="brand-text">Buy, Renovate</span>{" "}
               &amp; Sell Dallas Homes
             </h1>
           </AnimateIn>
 
           <AnimateIn delay={200}>
-            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-paper/60 sm:text-xl">
+            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-stone sm:text-xl">
               {siteConfig.companyName} acquires, renovates, and resells residential
               properties across DFW — plus wholesale deals and capital-partner
               opportunities for investors.
@@ -91,7 +91,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="#process"
-                className="inline-flex items-center rounded-xl border border-paper/15 bg-paper/5 px-8 py-4 text-sm font-semibold text-paper backdrop-blur-sm transition-all hover:bg-paper/10"
+                className="inline-flex items-center rounded-xl border border-charcoal/15 bg-charcoal/5 px-8 py-4 text-sm font-semibold text-charcoal backdrop-blur-sm transition-all hover:bg-charcoal/10"
               >
                 See Our Process
               </Link>
@@ -100,15 +100,15 @@ export default function HomePage() {
         </div>
 
         {/* Stats bar */}
-        <div className="relative border-t border-paper/5 bg-paper/[0.02]">
+        <div className="relative border-t border-charcoal/10 bg-charcoal/[0.02]">
           <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px lg:grid-cols-4">
             {stats.map((s, i) => (
               <AnimateIn key={s.label} delay={400 + i * 100}>
                 <div className="px-6 py-8 text-center lg:py-10">
-                  <p className="text-2xl font-bold text-paper sm:text-3xl">
+                  <p className="text-2xl font-bold text-charcoal sm:text-3xl">
                     {s.value}
                   </p>
-                  <p className="mt-1 text-sm text-paper/50">{s.label}</p>
+                  <p className="mt-1 text-sm text-stone">{s.label}</p>
                 </div>
               </AnimateIn>
             ))}
@@ -194,10 +194,10 @@ export default function HomePage() {
         <div className="absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/15 blur-[100px]" />
         <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
           <AnimateIn>
-            <h2 className="font-display text-3xl font-semibold text-paper sm:text-4xl">
+            <h2 className="font-display text-3xl font-semibold text-charcoal sm:text-4xl">
               Ready to sell your home fast?
             </h2>
-            <p className="mt-6 text-lg text-paper/60">
+            <p className="mt-6 text-lg text-stone">
               Get a no-obligation cash offer — no showings, no repairs, no
               waiting.
             </p>

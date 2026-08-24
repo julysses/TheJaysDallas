@@ -46,23 +46,23 @@ export default function SellPage() {
                     <div className="mt-16 grid gap-12 lg:grid-cols-5">
                         <div className="lg:col-span-2">
                             <AnimateIn>
-                                <div className="rounded-2xl bg-ink p-8 lg:p-10">
-                                    <h2 className="font-display text-xl font-semibold text-paper">
+                                <div className="rounded-2xl border border-charcoal/10 bg-ink p-8 lg:p-10">
+                                    <h2 className="font-display text-xl font-semibold text-charcoal">
                                         Why Sell to Us
                                     </h2>
-                                    <p className="mt-3 text-sm text-paper/60">
+                                    <p className="mt-3 text-sm text-stone">
                                         We buy homes in any condition, anywhere in DFW. Our team
                                         reviews every submission personally and responds within
                                         one business day.
                                     </p>
-                                    <div className="mt-8 space-y-4 text-sm text-paper/60">
+                                    <div className="mt-8 space-y-4 text-sm text-stone">
                                         <p>
-                                            <a href={`mailto:${siteConfig.email}`} className="text-primary-light hover:underline">
+                                            <a href={`mailto:${siteConfig.email}`} className="text-primary hover:underline">
                                                 {siteConfig.email}
                                             </a>
                                         </p>
                                         <p>
-                                            <a href={`tel:${siteConfig.phone}`} className="text-primary-light hover:underline">
+                                            <a href={`tel:${siteConfig.phone}`} className="text-primary hover:underline">
                                                 {siteConfig.phone}
                                             </a>
                                         </p>

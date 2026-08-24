@@ -27,15 +27,15 @@ export default function PageHero({
             <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
                 <AnimateIn>
                     {eyebrow && (
-                        <p className="text-sm font-semibold uppercase tracking-widest text-primary-light">
+                        <p className="text-sm font-semibold uppercase tracking-widest text-primary">
                             {eyebrow}
                         </p>
                     )}
-                    <h1 className={`${eyebrow ? "mt-4" : ""} max-w-3xl font-display text-4xl font-semibold tracking-tight text-paper sm:text-5xl`}>
+                    <h1 className={`${eyebrow ? "mt-4" : ""} max-w-3xl font-display text-4xl font-semibold tracking-tight text-charcoal sm:text-5xl`}>
                         {title}
                     </h1>
                     {subhead && (
-                        <p className="mt-6 max-w-2xl text-lg text-paper/60">{subhead}</p>
+                        <p className="mt-6 max-w-2xl text-lg text-stone">{subhead}</p>
                     )}
                     {children}
                 </AnimateIn>

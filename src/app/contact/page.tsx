@@ -58,21 +58,21 @@ export default function ContactPage() {
                         {/* Contact info */}
                         <div className="lg:col-span-2">
                             <AnimateIn>
-                                <div className="rounded-2xl bg-ink p-8 lg:p-10">
-                                    <h2 className="font-display text-xl font-semibold text-paper">Get in Touch</h2>
-                                    <p className="mt-3 text-sm text-paper/60">We typically respond within one business day.</p>
+                                <div className="rounded-2xl border border-charcoal/10 bg-ink p-8 lg:p-10">
+                                    <h2 className="font-display text-xl font-semibold text-charcoal">Get in Touch</h2>
+                                    <p className="mt-3 text-sm text-stone">We typically respond within one business day.</p>
                                     <div className="mt-10 space-y-8">
                                         {contactInfo.map((item) => (
                                             <div key={item.label} className="flex items-start gap-4">
-                                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary-light">
+                                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                                                     {item.icon}
                                                 </div>
                                                 <div>
-                                                    <p className="text-xs font-semibold uppercase tracking-wider text-paper/40">{item.label}</p>
+                                                    <p className="text-xs font-semibold uppercase tracking-wider text-stone">{item.label}</p>
                                                     {item.href ? (
-                                                        <a href={item.href} className="mt-1 block text-paper transition-colors hover:text-primary-light">{item.value}</a>
+                                                        <a href={item.href} className="mt-1 block text-charcoal transition-colors hover:text-primary">{item.value}</a>
                                                     ) : (
-                                                        <p className="mt-1 text-paper">{item.value}</p>
+                                                        <p className="mt-1 text-charcoal">{item.value}</p>
                                                     )}
                                                 </div>
                                             </div>
