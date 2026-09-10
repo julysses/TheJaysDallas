@@ -1,44 +1,6 @@
-"use client";
-
 import Link from "next/link";
 
-export default function Logo({
-    size = "md",
-    linkHome = true,
-}: {
-    size?: "sm" | "md" | "lg";
-    linkHome?: boolean;
-}) {
-    const sizeClasses = {
-        sm: "h-8 w-8 text-[13px]",
-        md: "h-10 w-10 text-[16px]",
-        lg: "h-14 w-14 text-[22px]",
-    };
-
-    const monogram = (
-        <span
-            className={`relative inline-flex items-center justify-center rounded-lg border border-primary/30 bg-ink shadow-lg shadow-charcoal/10 ${sizeClasses[size]}`}
-        >
-            {/* 3 overlapping bold sans J's */}
-            <span className="relative flex items-center font-display font-bold" style={{ letterSpacing: "-0.15em" }}>
-                <span className="text-charcoal/30">J</span>
-                <span className="relative text-charcoal/60" style={{ marginLeft: "-0.2em" }}>
-                    J
-                </span>
-                <span className="relative text-primary" style={{ marginLeft: "-0.2em" }}>
-                    J
-                </span>
-            </span>
-        </span>
-    );
-
-    if (linkHome) {
-        return (
-            <Link href="/" className="group flex items-center gap-2.5 transition-opacity hover:opacity-90">
-                {monogram}
-            </Link>
-        );
-    }
-
-    return <span className="flex items-center gap-2.5">{monogram}</span>;
+export default function Logo({ size = "md", linkHome = true }: { size?: "sm" | "md" | "lg"; linkHome?: boolean }) {
+  const mark = <svg className={`triple-j triple-j--${size}`} viewBox="0 0 92 68" role="img" aria-label="JJJ — The Jays Dallas"><g fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="square"><path d="M5 8h24M23 8v31c0 20-19 20-19 8"/><path d="M32 14h24M50 14v31c0 20-19 20-19 8"/><path d="M59 8h24M77 8v31c0 20-19 20-19 8"/></g></svg>;
+  return linkHome ? <Link href="/" className="triple-j-link" aria-label="The Jays Dallas home">{mark}</Link> : mark;
 }
