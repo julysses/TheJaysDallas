@@ -3,14 +3,14 @@
 /* ── Brand tokens ───────────────────────────── */
 @theme {
   --color-ink: #ffffff;
-  --color-ink-soft: #f4f2ef;
-  --color-paper: #faf7f2;
-  --color-paper-alt: #f1ebe0;
-  --color-charcoal: #2b2620;
-  --color-stone: #6b6255;
-  --color-primary: #1428a3;
-  --color-primary-light: #3450c4;
-  --color-primary-dark: #0f1f7d;
+  --color-ink-soft: #f3f5f8;
+  --color-paper: #ffffff;
+  --color-paper-alt: #edf1f6;
+  --color-charcoal: #14243b;
+  --color-stone: #536174;
+  --color-primary: #183b69;
+  --color-primary-light: #24558c;
+  --color-primary-dark: #112b4e;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
@@ -92,4 +92,60 @@ body {
 
 .glow-pulse {
   animation: glow-pulse 4s ease-in-out infinite;
+}
+
+
+/* Shared brand family: navy, white, and Hilltop crimson. */
+:focus-visible { outline: 3px solid #ce0435; outline-offset: 5px; }
+.eyebrow { font-size: .875rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: #536174; }
+.jays-hero { display: grid; grid-template-columns: 1fr 1fr; padding-top: 88px; background: #edf1f6; }
+.jays-hero-copy { padding: clamp(40px, 6vw, 100px) max(24px, calc((100vw - 1200px)/2)); padding-right: 48px; }
+.jays-hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 5.3vw, 5.5rem); line-height: 1.04; letter-spacing: -.055em; font-weight: 600; margin: 28px 0; }
+.jays-hero h1 span { color: #183b69; }
+.hero-description { font-size: 1.125rem; line-height: 1.8; max-width: 34rem; color: #536174; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 26px; margin-top: 32px; }
+.jays-button { display: inline-flex; justify-content: center; align-items: center; gap: 16px; background: #183b69; color: white; border-radius: 4px; padding: 16px 24px; font-size: .9375rem; font-weight: 600; transition: background .2s; }
+.jays-button:hover { background: #112b4e; }
+.jays-text-link { font-size: .9375rem; font-weight: 600; text-decoration: underline; text-underline-offset: 6px; }
+.hero-signoff { border-top: 1px solid #cbd3de; margin-top: 48px; padding-top: 22px; font-size: .875rem; letter-spacing: .12em; text-transform: uppercase; }
+.jays-hero-photo { position: relative; min-height: 560px; }
+.jays-hero-photo img { object-position: 58% center; }
+.photo-caption { position: absolute; bottom: 0; left: 0; right: 0; background: #14243bee; color: white; padding: 28px 36px; display: flex; flex-direction: column; gap: 6px; }
+.photo-caption span { font-size: .875rem; color: #c6d0df; }
+.photo-caption strong { font-size: 1.2rem; font-weight: 500; }
+.jays-facts { display: grid; grid-template-columns: repeat(4, 1fr); background: #14243b; color: white; padding: 28px max(24px, calc((100vw - 1200px)/2)); gap: 24px; }
+.jays-facts div { display: flex; flex-direction: column; gap: 6px; }
+.jays-facts strong { font-size: 1.25rem; font-weight: 600; }
+.jays-facts span { color: #c6d0df; font-size: .875rem; }
+.companies-page { max-width: 1280px; margin: auto; padding: 160px 32px 80px; }
+.companies-intro { max-width: 720px; margin-bottom: 56px; }
+.companies-intro h1 { font-family: var(--font-display); font-size: clamp(2.75rem, 6vw, 4.75rem); line-height: 1.1; letter-spacing: -.045em; margin: 20px 0; font-weight: 600; }
+.companies-intro h1 span { color: #ce0435; }
+.companies-intro > p:last-child { font-size: 1.125rem; line-height: 1.8; color: #536174; }
+.company-feature { display: grid; grid-template-columns: .85fr 1.15fr; border: 1px solid #d6dde7; }
+.company-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 24px; background: #14243b; color: white; }
+.hilltop-monogram { font-family: Georgia, serif; font-weight: 700; font-size: 9rem; line-height: 1; letter-spacing: -.075em; color: #fff; border-bottom: 5px solid #ce0435; padding: 0 16px 24px 0; margin-bottom: 24px; }
+.company-brand > span:nth-child(2) { font-weight: 800; font-size: 1.375rem; }
+.company-brand p { color: #c6d0df; margin-top: 14px; font-size: .875rem; }
+.company-copy { padding: clamp(28px, 5vw, 64px); }
+.company-copy h2 { font-size: 2.25rem; letter-spacing: -.04em; font-weight: 700; margin: 16px 0; }
+.company-copy > p:not(.eyebrow) { color: #536174; line-height: 1.8; }
+.company-copy ul { padding-left: 20px; list-style: disc; margin: 24px 0 32px; line-height: 1.8; }
+.company-copy .jays-button { background: #ce0435; }
+.company-copy .jays-button:hover { background: #a7032b; }
+.company-domain { margin-top: 12px; font-size: .875rem; }
+.companies-contact { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; padding-top: 40px; }
+@media (max-width: 800px) {
+ .jays-hero, .company-feature { grid-template-columns: 1fr; }
+ .jays-hero-copy { padding: 48px 24px; }
+ .jays-hero-photo { min-height: 370px; }
+ .jays-facts { grid-template-columns: 1fr 1fr; padding: 30px 24px; }
+ .companies-page { padding: 128px 20px 56px; }
+ .company-brand { padding: 36px 24px; }
+ .hilltop-monogram { font-size: 6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto; }
+ .animate-in { opacity: 1; transform: none; transition: none; }
+ .glow-pulse { animation: none; }
 }

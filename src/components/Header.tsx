@@ -11,6 +11,7 @@ const navLinks = [
     { href: "/about", label: "About" },
     { href: "/portfolio", label: "Portfolio" },
     { href: "/team", label: "Team" },
+    { href: "/our-companies", label: "Our Companies" },
 ];
 
 const getStartedLinks = [
@@ -57,7 +58,7 @@ export default function Header() {
         <header
             className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled
                 ? "border-b border-charcoal/10 bg-ink/95 shadow-lg shadow-charcoal/5 backdrop-blur-xl"
-                : "bg-transparent"
+                : "border-b border-charcoal/10 bg-white/95"
                 }`}
         >
             <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
@@ -70,7 +71,7 @@ export default function Header() {
                 </div>
 
                 {/* Desktop nav */}
-                <nav className="hidden items-center gap-1 md:flex">
+                <nav className="hidden items-center gap-1 xl:flex">
                     {navLinks.map((link) => (
                         <Link
                             key={link.href}
@@ -108,6 +109,7 @@ export default function Header() {
                             </svg>
                         </button>
                         <div
+                            hidden={!dropdownOpen}
                             className={`absolute right-0 top-full mt-2 w-56 rounded-xl border border-charcoal/10 bg-ink-soft/98 p-2 shadow-xl shadow-charcoal/10 backdrop-blur-xl transition-all duration-150 ${dropdownOpen
                                 ? "pointer-events-auto translate-y-0 opacity-100"
                                 : "pointer-events-none -translate-y-1 opacity-0"
@@ -148,7 +150,7 @@ export default function Header() {
 
                 {/* Mobile menu button */}
                 <button
-                    className="relative z-50 flex h-10 w-10 items-center justify-center rounded-lg transition-colors hover:bg-charcoal/10 md:hidden"
+                    className="relative z-50 flex h-10 w-10 items-center justify-center rounded-lg transition-colors hover:bg-charcoal/10 xl:hidden"
                     onClick={() => setMobileOpen(!mobileOpen)}
                     aria-label="Toggle navigation"
                 >
@@ -171,7 +173,8 @@ export default function Header() {
 
             {/* Mobile drawer */}
             <div
-                className={`fixed inset-0 z-40 overflow-y-auto bg-ink/98 backdrop-blur-xl transition-all duration-300 md:hidden ${mobileOpen
+                hidden={!mobileOpen}
+                className={`fixed inset-0 z-40 overflow-y-auto bg-ink/98 backdrop-blur-xl transition-all duration-300 xl:hidden ${mobileOpen
                     ? "pointer-events-auto opacity-100"
                     : "pointer-events-none opacity-0"
                     }`}
@@ -225,3 +228,4 @@ export default function Header() {
         </header>
     );
 }
+

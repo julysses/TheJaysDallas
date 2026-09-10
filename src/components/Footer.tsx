@@ -9,6 +9,7 @@ const footerLinks = [
             { label: "About", href: "/about" },
             { label: "Portfolio", href: "/portfolio" },
             { label: "Team", href: "/team" },
+            { label: "Our Companies", href: "/our-companies" },
         ],
     },
     {
@@ -101,3 +102,4 @@ export default function Footer() {
         </footer>
     );
 }
+
