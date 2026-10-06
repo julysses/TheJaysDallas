@@ -16,6 +16,7 @@ const footerLinks = [
         title: "Get Started",
         links: [
             { label: "Sell Your Home", href: "/sell" },
+            { label: "SMS Updates & Opt-In", href: "/sms" },
             { label: "Buyer Program", href: "/buyers" },
             { label: "Financing", href: "/financing" },
         ],
@@ -46,7 +47,7 @@ export default function Footer() {
                         </div>
                         <p className="mt-4 max-w-sm text-sm leading-relaxed text-stone">
                             {siteConfig.companyName} — buying, renovating, and selling homes
-                            across {siteConfig.location} and the surrounding DFW metro.
+                            across {siteConfig.location} and the surrounding DFW metro. Hilltop Home Co. is a DBA of The Jays Dallas, LLC.
                         </p>
                         <div className="mt-6 space-y-2 text-sm text-stone">
                             <p>

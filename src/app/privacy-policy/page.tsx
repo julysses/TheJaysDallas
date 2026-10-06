@@ -17,7 +17,7 @@ const sections = [
     {
         title: "Types of Messages",
         content:
-            "You may receive messages related to property inquiries, offer updates, appointment reminders, closing updates, and other communications relevant to our business relationship.",
+            "Hilltop Home Co., a DBA of The Jays Dallas, LLC, sends property inquiry confirmations, offer updates, appointment reminders and closing updates to people who choose SMS on its offer form.",
     },
     {
         title: "Message Frequency",
@@ -47,7 +47,7 @@ const sections = [
     {
         title: "No Sharing of Personal Data",
         content:
-            "We do not sell, rent, or share your phone number or any personal information collected through our messaging program with third parties for their own marketing purposes. Your data will only be shared with service providers who assist us in delivering messages, and they are obligated to protect your information.",
+            "Mobile information, SMS opt-in data and consent are not sold or shared with third parties or affiliates for marketing or promotional purposes. Messaging service providers may process these records only to operate the messaging program.",
     },
     {
         title: "Carrier Disclaimer",
@@ -55,9 +55,9 @@ const sections = [
             "Carriers (e.g., T-Mobile, AT&T, Verizon) are not liable for delayed or undelivered messages. Message delivery is subject to effective transmission by your carrier.",
     },
     {
-        title: "TCPA Compliance",
+        title: "Scope of Consent",
         content:
-            `${siteConfig.companyName} complies with the Telephone Consumer Protection Act (TCPA) and all applicable federal and state regulations. We obtain proper consent before sending any automated or pre-recorded messages to your mobile device.`,
+            "SMS enrollment is limited to the program you choose. SMS consent does not authorize AI or prerecorded calls, or unrelated marketing.",
     },
     {
         title: "Changes to This Policy",
@@ -74,14 +74,14 @@ const sections = [
 export default function PrivacyPolicyPage() {
     return (
         <>
-            <PageHero title="SMS Privacy Policy" subhead="Effective date: March 2026" compact />
+            <PageHero title="SMS Privacy Policy" subhead="Effective date: October 6, 2026" compact />
 
             {/* ── Content ───────────────────────────────── */}
             <section className="bg-paper py-16 sm:py-24">
                 <div className="mx-auto max-w-3xl px-6 lg:px-8">
                     <AnimateIn>
                         <p className="text-lg leading-relaxed text-stone">
-                            {siteConfig.companyName} respects your privacy and is
+                            Hilltop Home Co., a DBA of {siteConfig.companyName}, respects your privacy and is
                             committed to protecting the personal information you
                             share with us. This SMS Privacy Policy explains how we
                             collect, use, and safeguard information in connection
@@ -89,6 +89,7 @@ export default function PrivacyPolicyPage() {
                         </p>
                     </AnimateIn>
 
+                    <p className="mt-6"><a href="/sms" className="text-primary underline">View the SMS opt-in process</a>. The optional checkbox at hilltophome.co/get-an-offer starts unchecked; submitting a phone number alone is not SMS consent.</p>
                     <div className="mt-12 space-y-10">
                         {sections.map((s, i) => (
                             <AnimateIn key={s.title} delay={i * 50}>
