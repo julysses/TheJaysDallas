@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
     return (
         <>
-            <PageHero title="SMS Terms & Conditions" subhead="Effective date: March 2026" compact />
+            <PageHero title="SMS Terms & Conditions" subhead="Effective date: October 6, 2026" compact />
 
             {/* ── Content ───────────────────────────────── */}
             <section className="bg-paper py-16 sm:py-24">
@@ -25,6 +25,7 @@ export default function TermsPage() {
                         </p>
                     </AnimateIn>
 
+                    <p className="mt-6"><a href="/sms" className="text-primary underline">How to opt in</a>: select the optional SMS checkbox on the Hilltop offer form. Leaving it unchecked still lets you request an offer. SMS consent does not authorize AI calls or unrelated marketing.</p>
                     <div className="mt-12 space-y-10">
                         {/* Program Name */}
                         <AnimateIn delay={50}>
@@ -33,8 +34,7 @@ export default function TermsPage() {
                                     Program Name
                                 </h2>
                                 <p className="mt-3 leading-relaxed text-stone">
-                                    {siteConfig.companyName} SMS Alerts &amp;
-                                    Notifications
+                                    Hilltop Home Co. Property Inquiry Updates
                                 </p>
                             </div>
                         </AnimateIn>
@@ -48,11 +48,10 @@ export default function TermsPage() {
                                 <p className="mt-3 leading-relaxed text-stone">
                                     By providing your mobile phone number and opting
                                     in, you consent to receive recurring automated
-                                    text messages from {siteConfig.companyName}.
+                                    text messages from Hilltop Home Co., a DBA of {siteConfig.companyName}.
                                     Messages may include property inquiry updates,
                                     offer status, appointment reminders, closing
-                                    updates, and other communications related to our
-                                    real estate services. Consent to receive
+                                    updates about your inquiry. Consent to receive
                                     messages is not a condition of purchase.
                                 </p>
                             </div>
@@ -221,8 +220,7 @@ export default function TermsPage() {
                                     <span className="font-medium text-charcoal">
                                         Program:
                                     </span>{" "}
-                                    {siteConfig.companyName} SMS Alerts &amp;
-                                    Notifications
+                                    Hilltop Home Co. Property Inquiry Updates
                                 </li>
                                 <li>
                                     <span className="font-medium text-charcoal">
