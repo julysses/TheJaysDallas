@@ -1,0 +1,2 @@
+export const SMS_CONSENT_COPY = "By checking this optional box, I agree to receive recurring automated text messages from Hilltop Home Co., a DBA of The Jays Dallas, LLC, about my property inquiry, offer updates, appointment reminders and closing updates. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase or receiving an offer.";
+export const INTAKE_INTENTS = ["sell", "buyer", "financing", "contact"] as const;

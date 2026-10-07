@@ -3,6 +3,7 @@
 import { siteConfig } from "@/lib/siteConfig";
 import AnimateIn from "@/components/AnimateIn";
 import PageHero from "@/components/PageHero";
+import LeadForm from "@/components/LeadForm";
 
 const contactInfo = [
     {
@@ -85,33 +86,7 @@ export default function ContactPage() {
                         {/* Form */}
                         <div className="lg:col-span-3">
                             <AnimateIn delay={150}>
-                                <form action={`mailto:${siteConfig.email}`} method="POST" encType="text/plain" className="space-y-6">
-                                    <div className="grid gap-6 sm:grid-cols-2">
-                                        <div>
-                                            <label htmlFor="name" className="block text-sm font-medium text-charcoal">Name</label>
-                                            <input type="text" id="name" name="name" required placeholder="Your name" className="mt-2 block w-full rounded-xl border border-charcoal/15 bg-paper-alt px-4 py-3 text-charcoal transition-colors focus:border-primary focus:bg-paper focus:outline-none focus:ring-2 focus:ring-primary/20" />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="email" className="block text-sm font-medium text-charcoal">Email</label>
-                                            <input type="email" id="email" name="email" required placeholder="you@example.com" className="mt-2 block w-full rounded-xl border border-charcoal/15 bg-paper-alt px-4 py-3 text-charcoal transition-colors focus:border-primary focus:bg-paper focus:outline-none focus:ring-2 focus:ring-primary/20" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label htmlFor="subject" className="block text-sm font-medium text-charcoal">Subject</label>
-                                        <input type="text" id="subject" name="subject" placeholder="How can we help?" className="mt-2 block w-full rounded-xl border border-charcoal/15 bg-paper-alt px-4 py-3 text-charcoal transition-colors focus:border-primary focus:bg-paper focus:outline-none focus:ring-2 focus:ring-primary/20" />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="message" className="block text-sm font-medium text-charcoal">Message</label>
-                                        <textarea id="message" name="message" rows={6} required placeholder="Tell us more..." className="mt-2 block w-full rounded-xl border border-charcoal/15 bg-paper-alt px-4 py-3 text-charcoal transition-colors focus:border-primary focus:bg-paper focus:outline-none focus:ring-2 focus:ring-primary/20" />
-                                    </div>
-                                    <button type="submit" className="w-full rounded-xl bg-primary px-8 py-4 text-sm font-semibold text-paper shadow-lg shadow-primary/25 transition-all hover:bg-primary-light sm:w-auto">
-                                        Send Message
-                                    </button>
-                                    <p className="text-xs text-stone">
-                                        This form opens your default email client. You can also email us directly at{" "}
-                                        <a href={`mailto:${siteConfig.email}`} className="text-primary hover:underline">{siteConfig.email}</a>.
-                                    </p>
-                                </form>
+                                <LeadForm intent="contact" />
                             </AnimateIn>
                         </div>
                     </div>
