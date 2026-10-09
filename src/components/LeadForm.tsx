@@ -228,7 +228,7 @@ function LeadFormInner({ intent }: { intent: LeadFormIntent }) {
                 .
             </p>
             </fieldset>
-            {(error || recovery.draft || recovery.blocked) && <p role="alert" className="text-sm text-primary">{error || (recovery.blocked ? "This browser cannot recover a previous inquiry. Contact us before submitting again." : UNCERTAIN_INTAKE)} Call {siteConfig.phone} or email {siteConfig.email}.</p>}
+            {(error || (status !== "sending" && recovery.draft) || recovery.blocked) && <p role="alert" className="text-sm text-primary">{error || (recovery.blocked ? "This browser cannot recover a previous inquiry. Contact us before submitting again." : UNCERTAIN_INTAKE)} Call {siteConfig.phone} or email {siteConfig.email}.</p>}
             {status === "uncertain" && <button type="button" disabled={!ready || blocked} onClick={()=>void sendInquiry()} className="rounded-xl bg-primary px-8 py-4 text-sm font-semibold text-paper disabled:opacity-50">Retry Saved Inquiry</button>}
         </form>
     );
