@@ -3,6 +3,7 @@
 import { useMemo, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import { SMS_CONSENT_COPY } from "@/lib/intake";
 import { siteConfig } from "@/lib/siteConfig";
+import { browserAttribution } from "@/lib/attribution";
 import { clearPendingIntake, decodePendingIntake, intakeReceiptMatches, pendingIntakeKey, readPendingIntake, savePendingIntake, UNCERTAIN_INTAKE } from "@/lib/pendingIntake";
 
 export type LeadFormIntent = "sell" | "buyer" | "financing" | "contact";
@@ -99,7 +100,7 @@ function LeadFormInner({ intent }: { intent: LeadFormIntent }) {
         if (!draft) {
             if (!newFields) { busy.current = false; return; }
             try {
-                draft = savePendingIntake(window.sessionStorage, intent, newFields, crypto.randomUUID());
+                draft = savePendingIntake(window.sessionStorage, intent, newFields, crypto.randomUUID(), browserAttribution());
             } catch {
                 busy.current = false;
                 setBlocked(true);

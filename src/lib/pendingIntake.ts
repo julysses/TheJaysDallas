@@ -1,7 +1,8 @@
 import { INTAKE_INTENTS, SMS_CONSENT_COPY } from "./intake";
+import { cleanAttribution, type Attribution } from "./attribution";
 
 export type IntakeIntent = typeof INTAKE_INTENTS[number];
-export type IntakePayload = { request_id: string; intent: IntakeIntent; fields: Record<string, string>; sms_consent_text: string };
+export type IntakePayload = { request_id: string; intent: IntakeIntent; fields: Record<string, string>; sms_consent_text: string; attribution?: Attribution };
 export type PendingIntake = { version: 1; payload: IntakePayload; created_at: string };
 type Storage = Pick<globalThis.Storage, "getItem" | "setItem" | "removeItem">;
 export const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -25,9 +26,9 @@ export function decodePendingIntake(saved: string, intent: IntakeIntent): Pendin
   return draft;
 }
 
-export function savePendingIntake(storage: Storage, intent: IntakeIntent, fields: Record<string, string>, reference: string): PendingIntake {
+export function savePendingIntake(storage: Storage, intent: IntakeIntent, fields: Record<string, string>, reference: string, attribution: Attribution = {}): PendingIntake {
   if (!INTAKE_INTENTS.includes(intent) || !UUID_PATTERN.test(reference) || storage.getItem(key(intent)) !== null) throw new Error("Previous inquiry still needs confirmation");
-  const draft: PendingIntake = { version: 1, payload: { request_id: reference, intent, fields, sms_consent_text: SMS_CONSENT_COPY }, created_at: new Date().toISOString() };
+  const draft: PendingIntake = { version: 1, payload: { request_id: reference, intent, fields, sms_consent_text: SMS_CONSENT_COPY, attribution: cleanAttribution(attribution) }, created_at: new Date().toISOString() };
   const saved = JSON.stringify(draft);
   storage.setItem(key(intent), saved);
   if (storage.getItem(key(intent)) !== saved) throw new Error("Inquiry recovery unavailable");

@@ -11,12 +11,13 @@ function load(file, overrides = {}) {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
   }).outputText;
   vm.runInNewContext(source, { exports, require: id => overrides[id] || require(id),
-    process, Request, Response, AbortSignal, fetch: (...args) => globalThis.fetch(...args) });
+    process, URL, Request, Response, AbortSignal, fetch: (...args) => globalThis.fetch(...args) });
   return exports;
 }
 const disclosure = load('../src/lib/intake.ts');
-const pending = load('../src/lib/pendingIntake.ts', {'./intake': disclosure});
-const { POST } = load('../src/app/api/intake/route.ts', {'@/lib/intake': disclosure});
+const attribution = load('../src/lib/attribution.ts');
+const pending = load('../src/lib/pendingIntake.ts', {'./intake': disclosure, './attribution': attribution});
+const { POST } = load('../src/app/api/intake/route.ts', {'@/lib/intake': disclosure, '@/lib/attribution': attribution});
 const base = {name:'Test Owner', email:'test@example.com', phone:'2147010100'};
 const variants = {
   sell:{address:'Test property, Dallas, TX',condition:'Move-in ready',timeline:'Just exploring options'},
@@ -26,6 +27,23 @@ const variants = {
 };
 const request = body => new Request('https://thejaysdallas.com/api/intake', {
   method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:'11111111-1111-4111-8111-111111111111',sms_consent_text:disclosure.SMS_CONSENT_COPY,...body}),
+});
+test('landing attribution survives pending recovery and reaches CRM without replacing intent', async()=>{
+  const records=new Map();
+  const storage={getItem:k=>records.get(k)??null,setItem:(k,v)=>records.set(k,v),removeItem:k=>records.delete(k)};
+  const tags={utm_source:'facebook',utm_medium:'paid_social',utm_campaign:'october_launch'};
+  const draft=pending.savePendingIntake(storage,'contact',{...base,...variants.contact},'11111111-1111-4111-8111-111111111111',tags);
+  tags.utm_campaign='changed';
+  const recovered=pending.readPendingIntake(storage,'contact');
+  assert.equal(recovered.payload.attribution.utm_campaign,'october_launch');
+  const original=globalThis.fetch;
+  globalThis.fetch=async(_url,options)=>{
+    const body=JSON.parse(options.body);
+    assert.equal(body.utm_source,'facebook');assert.equal(body.utm_medium,'paid_social');assert.equal(body.utm_campaign,'october_launch');
+    assert.equal(body.answers.inquiry_type,'contact');assert.equal(body.answers.sms_opt_in,false);
+    return Response.json({success:true,submission_id:body.request_id,processing_status:'processed'});
+  };
+  try {assert.equal((await POST(request(draft.payload))).status,200);} finally {globalThis.fetch=original;}
 });
 for (const [intent, fields] of Object.entries(variants)) test(`${intent} creates a correctly routed CRM request`, async () => {
   const original = globalThis.fetch;

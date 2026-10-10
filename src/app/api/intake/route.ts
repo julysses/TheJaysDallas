@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { INTAKE_INTENTS, SMS_CONSENT_COPY } from "@/lib/intake";
+import { cleanAttribution } from "@/lib/attribution";
 
 export async function POST(request: Request) {
     let payload;
@@ -32,12 +33,13 @@ export async function POST(request: Request) {
     const details = Object.entries(fields).filter(([key]) => !["name", "email", "phone", "sms_opt_in"].includes(key))
         .map(([key,value]) => `${key}: ${value}`).join("\n");
     if (details.length > 5000) return NextResponse.json({ success: false, error: "Please shorten your inquiry details." }, { status: 422 });
+    const attribution = cleanAttribution(payload.attribution);
     const body = { request_id, answers: {
         first_name: name.shift(), last_name: name.join(" "), email: read("email"), phone: read("phone"),
         property_address: read("address"), inquiry_type: intent, message: details,
         sms_opt_in: intent === "sell" && read("sms_opt_in") === "on",
         sms_consent_text: SMS_CONSENT_COPY, sms_consent_source: `https://thejaysdallas.com/${intent === "sell" ? "sell" : intent === "buyer" ? "buyers" : intent}`,
-    }, utm_source: "thejaysdallas", utm_medium: "website", utm_campaign: intent };
+    }, utm_source: attribution.utm_source || "thejaysdallas", utm_medium: attribution.utm_medium || "website", utm_campaign: attribution.utm_campaign || intent };
     const base = (process.env.WHOLESALE_API_BASE || "https://wholesale-automation.vercel.app").replace(/\/$/, "");
     try {
         const response = await fetch(`${base}/api/forms/the-jays-dallas/submit`, {

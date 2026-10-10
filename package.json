@@ -6,7 +6,8 @@
     "dev": "node scripts/dev.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test tests/intake-route.mjs tests/attribution.mjs"
   },
   "dependencies": {
     "next": "^16.3.8",
